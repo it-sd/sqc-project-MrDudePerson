@@ -9,9 +9,8 @@ Web service
 -----------
 [GIPHY](https://developers.giphy.com/docs/api/#quick-start-guide) apiKey
 
-* 1 https://developers.giphy.com/docs/api/endpoint#trending
-* 2
- https://developers.giphy.com/docs/api/endpoint#search
+* https://developers.giphy.com/docs/api/endpoint#trending
+* https://developers.giphy.com/docs/api/endpoint#search
 
 Database use
 ------------
