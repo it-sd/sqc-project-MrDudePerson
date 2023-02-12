@@ -1,9 +1,9 @@
 GIF Journal
 ===========
 
-Ever feel like you'd like to keep a daily journal, but you don't want to write a description of your thoughts/feelings?
+Ever feel like you'd like to keep a daily journal, but you don't want to write a description of your thoughts/feelings? When thinking about an API integration that I could create, my first idea was to use GIFs in one way or another. GIFs are a fun and simple way to convey an idea.
 
-That's where the GIF Journal comes in. I envision the ability to choose a GIF that represents your thoughts/feelings, and then store the URL for that GIF inside a database for each day that you've submitted.
+That's where the GIF Journal comes in. I envision the ability to choose a GIF that represents your thoughts/feelings, and then store the URL for that GIF inside a database for each entry that the user has submitted. GIPHY is a powerful GIF library that is utilized very frequently across many platforms.
 
 Web service
 -----------
