@@ -22,12 +22,8 @@ The other table will be journalEntry. This table will contain the Name of the us
 Initial designs
 ---------------
 
-![Journal Page Sample Layout](/sqc-project-MrDudePerson/docs/gifJournalPage.png)
+![Journal Page Sample Layout](https://github.com/it-sd/sqc-project-MrDudePerson/blob/main/docs/gifJournalPage.png "Journal Page Sample Layout")
 
-![About Page Sample Layout](/sqc-project-MrDudePerson/docs/gifAboutPage.png)
+![About Page Sample Layout](https://github.com/it-sd/sqc-project-MrDudePerson/blob/main/docs/gifAboutPage.png "About Page Sample Layout")
 
-![GIF Journal website functionality path](/sqc-project-MrDudePerson/docs/sqc-project-LucidChart.png)
-
-
-
-
+![GIF Journal website functionality path](https://github.com/it-sd/sqc-project-MrDudePerson/blob/main/docs/sqc-project-LucidChart.png "GIF Journal Website Functionality Path")
