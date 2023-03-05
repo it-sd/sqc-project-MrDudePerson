@@ -32,6 +32,7 @@ app.listen(6090, () => {
 })
 
 // Error handling
+// Unspecified errors should be passed to error.ejs dynamically via the 'status' attribute.
 // 404 error
 app.use((req, res, next) => {
   res.status(404).render('pages/error', { status: 404 })
