@@ -1,0 +1,19 @@
+<%- include('../shared/header', {title: 'Error'}) %>
+
+<h1>It looks like something went wrong.</h1>
+<p>Sorry about that.</p>
+
+<% if (status === 404) { %>
+    <h2>Error 404: Page not found</h2>
+    <p>The page that you tried to visit could not be found.</p>
+<% } else if (status === 500) { %>
+    <h2>Error 500: Internal server error</h2>
+    <p>An issue has occurred within the server functionality. Please try again.</p>
+<% } else { %>
+    <h2>Error <%= status %></h2>
+    <p>It looks like an error <%= status %> has occurred. Please try again.</p>
+<% } %>
+
+<p></p>
+</body>
+</html>
