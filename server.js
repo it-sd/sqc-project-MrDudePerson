@@ -39,7 +39,7 @@ app.get('/health', async (req, res) => {
     await pool.query('SELECT * FROM journal_gif, journal_entry')
     res.status(200).send('healthy')
   } catch (err) {
-    res.status(500).send('Failed to connect to database. Please try again later.')
+    res.status(500).send('Error 500: Failed to connect to database. Please try again later.')
   }
 })
 
