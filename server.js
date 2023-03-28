@@ -1,10 +1,15 @@
-const express = require('express')
-const path = require('path')
+require('dotenv').config()
 const { Pool } = require('pg')
-const pool = require('express')
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL || 'postgres://password:postgres@localhost:6090/database?sslmode=disable'
+})
+const express = require('express')
+const app = express()
+const path = require('path')
+// const PORT = process.env.PORT || 6090
+
 // const pool = require('express')
 // const query = require('esquery')
-const app = express()
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')

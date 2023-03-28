@@ -1,18 +1,15 @@
-var journal_entry = require('ejs')
-const forEach = require('lodash/forEach')
-
 <%- include('../shared/header', {title: 'Home'}) %>
 <p>Welcome to the home page for my GIF Journal. Use the
     GIF search box on this page (in progress) to locate and select a GIF
     to add to your journal.</p>
 <h1>Journal Entries</h1>
 <ul>
-    <% forEach(journal_entry => { %>
+    <% for(var journal_entry in journal_entry) { %>
         <li>
             <h2><%= journal_entry.name %></h2>
             <p><%= journal_entry.entry_date %></p>
         </li>
-    <% }); %>
+    <% } %>
 </ul>
 </body>
 </html>
