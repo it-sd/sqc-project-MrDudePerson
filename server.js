@@ -1,5 +1,9 @@
 const express = require('express')
 const path = require('path')
+const { Pool } = require('pg')
+const pool = require('express')
+// const pool = require('express')
+// const query = require('esquery')
 const app = express()
 
 app.set('views', path.join(__dirname, 'views'))
@@ -10,12 +14,23 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, '/')))
 
 // Define routes here
-app.get('/health', (req, res) => {
-  res.status(200).send('healthy')
+app.get('/health', async (req, res) => {
+  try {
+    await pool.query('SELECT * FROM journal_gif, journal_entry')
+    res.status(200).send('healthy')
+  } catch (err) {
+    res.status(500).send('Failed to connect to database. Please try again later.')
+  }
 })
 
-app.get('/', (req, res) => {
-  res.render('pages/index')
+app.get('/', async (req, res) => {
+  try {
+    const { rows } = await pool.query('SELECT * FROM journal_entry')
+    res.render('pages/index', { journal_entry: rows })
+  } catch (err) {
+    console.error(err)
+    res.status(500).send('Failed to connect to database. Please try again later.')
+  }
 })
 
 app.get('/about', (req, res) => {
