@@ -1,7 +1,10 @@
 require('dotenv').config()
 const { Pool } = require('pg')
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgres://password:postgres@localhost:6090/database?sslmode=disable'
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 })
 const express = require('express')
 const app = express()
@@ -28,7 +31,7 @@ app.get('/health', async (req, res) => {
   }
 })
 
-app.get('/', async (req, res) => {
+app.get('/', async function (req, res) {
   try {
     const { rows } = await pool.query('SELECT * FROM journal_entry')
     res.render('pages/index', { journal_entry: rows })

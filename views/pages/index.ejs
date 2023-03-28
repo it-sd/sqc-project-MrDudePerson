@@ -3,13 +3,23 @@
     GIF search box on this page (in progress) to locate and select a GIF
     to add to your journal.</p>
 <h1>Journal Entries</h1>
-<ul>
-    <% for(var journal_entry in journal_entry) { %>
-        <li>
-            <h2><%= journal_entry.name %></h2>
-            <p><%= journal_entry.entry_date %></p>
-        </li>
-    <% } %>
-</ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Entry ID</th>
+                <th>Name</th>
+                <th>Entry Date</th>
+            </tr>
+        </thead>
+            <tbody>
+                <% journal_entry.forEach(function(journal_entry) { %>
+                    <tr>
+                        <td><%= journal_entry.entry_id %></td>
+                        <td><%= journal_entry.name %></td>
+                        <td><%= journal_entry.entry_date %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+    </table>
 </body>
 </html>
