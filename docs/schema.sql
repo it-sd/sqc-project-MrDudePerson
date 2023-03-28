@@ -16,7 +16,8 @@ CREATE TABLE journal_gif (
 
 INSERT INTO journal_entry (entry_id, name, entry_date)
   VALUES
- (1, 'TestName', '1-1-2023');
+ (1, 'TestName', '1-1-2023'), (2, 'TestName2', '2-2-2023');
+
 
 INSERT INTO journal_gif (entry_id, gif_link)
   VALUES

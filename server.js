@@ -9,6 +9,18 @@ const pool = new Pool({
 const express = require('express')
 const app = express()
 const path = require('path')
+
+const verifyDatabaseQuery = async function (sql) {
+  try {
+    const result = await pool.query(sql)
+    return result
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
+}
+
+module.exports = { verifyDatabaseQuery }
 // const PORT = process.env.PORT || 6090
 
 // const pool = require('express')

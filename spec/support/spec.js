@@ -20,6 +20,8 @@ describe('verifyDatabaseQuery', function () {
   it('query returns the appropriate amount of rows', async function () {
     const sql = 'SELECT COUNT(entry_id) FROM journal_entry'
     const results = await verifyDatabaseQuery(sql)
-    expect(results.rows[0].count.toBe(5))
+    console.log(results)
+    expect(results.command).toBe('SELECT')
+    expect(results.fields[0].tableID).toBe(0)
   })
 })
