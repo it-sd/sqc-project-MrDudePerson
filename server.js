@@ -6,6 +6,7 @@ const pool = new Pool({
     rejectUnauthorized: false
   }
 })
+const PORT = process.env.PORT || 6090
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -21,7 +22,7 @@ const verifyDatabaseQuery = async function (sql) {
 }
 
 module.exports = { verifyDatabaseQuery }
-// const PORT = process.env.PORT || 6090
+
 
 // const pool = require('express')
 // const query = require('esquery')
