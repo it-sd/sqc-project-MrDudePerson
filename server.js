@@ -7,8 +7,12 @@ const pool = new Pool({
   }
 })
 const express = require('express')
+const bp = require('body-parser')
 const app = express()
 const path = require('path')
+const req = require('express')
+const res = require('express')
+const async = require('resolve')
 
 const verifyDatabaseQuery = async function (sql) {
   try {
@@ -25,7 +29,8 @@ module.exports = { verifyDatabaseQuery }
 
 // const pool = require('express')
 // const query = require('esquery')
-
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
@@ -34,6 +39,33 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, '/')))
 
 // Define routes here
+app.post('/submit', async (req, res) => {
+  try {
+    const data = ('name')
+    console.log(data)
+    const queryJournalEntry = {
+      text: 'INSERT INTO journal_entry (name) VALUES ($1)',
+      values: [data.name]
+    }
+    console.log(queryJournalEntry)
+    await pool.query(queryJournalEntry)
+
+    const queryJournalGif = {
+      text: 'INSERT INTO journal_gif (gif_link) VALUES (gif_link.value)',
+      values: [data.gif_link]
+    }
+    await pool.query(queryJournalGif)
+    await pool.query('COMMIT')
+    res.status(200).send('Data has been inserted into database.')
+    queryJournalEntry.release()
+  } catch (err) {
+    await pool.query('ROLLBACK')
+
+    console.error(err)
+    res.status(500).send('Data failed to insert into database.')
+  }
+})
+
 app.get('/health', async (req, res) => {
   try {
     await pool.query('SELECT * FROM journal_gif, journal_entry')
