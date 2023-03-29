@@ -37,3 +37,16 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
 }
+
+th {
+    background-color: #048bcc;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #56c7c7;
+}
+
+tr:nth-child(odd) {
+    background-color: #d1d9ba;
+}

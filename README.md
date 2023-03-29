@@ -22,3 +22,5 @@ The endpoints that I anticipate to use are:
 Tables
 ======
 Thinking ahead, the two tables that I could use in my database could be journalEntry and journalGIF. The journalEntry table would hold information about when the journal entry was created, who created it, and would also hold a reference to the journalGIF table that would be responsible for storing the URL for the chosen GIF for the associated journal entry.
+
+![Entity Relationship Diagram](/docs/Entity_Relationship_Diagram_sqc-project-MrDudePerson.png)
